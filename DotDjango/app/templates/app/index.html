@@ -1,0 +1,25 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Dot Collector</h1>
+    <p class="lead">Dot Collector is the app that promotes complete transparency and continuous self improvement in teams.</p>
+    <p><a href="https://www.youtube.com/watch?v=HXbsVbFAczg" class="btn btn-primary btn-large">Watch the TED talk that started it all &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Create a group</h2>
+        <p>
+            Create a group where everyone can provide feedback and view feedback a holistically and across time. 
+        </p>
+        <p><a class="btn btn-default" href="creategroup">Create Group &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Sign Up</h2>
+        <p><button class="btn btn-default" href="{% url 'signup' %}">Sign Up &raquo;</button></p>
+    </div>
+</div>
+
+{% endblock %}

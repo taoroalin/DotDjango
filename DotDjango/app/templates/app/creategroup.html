@@ -1,0 +1,44 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>Create Group</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="createGroupForm">
+            <form action="." method="post" class="form-horizontal">
+                {% csrf_token %}
+                <h4>Create a new group</h4>
+                <hr />
+                <div class="form-group">
+                    <label for="id_group" class="col-md-2 control-label">Group Name</label>
+                    <div class="col-md-10">
+                        {{ form.group_name }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Create Group" class="btn btn-default" />
+                    </div>
+                </div>
+                {% if form.errors %}
+                <p class="validation-summary-errors">Please enter a name for your group</p>
+                {% endif %}
+            </form>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}

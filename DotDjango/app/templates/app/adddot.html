@@ -1,0 +1,45 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Add a Dot</h1>
+    <p class="lead">Give feedback on someone's presentation, management, or character.</p>
+</div>
+<div>
+    <h2>People</h2>
+    <ul class="people">
+        {% for person in people %}
+        <li> <p>{{ person.name }}</p></li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="lead">
+    <h2>Aspects</h2>
+    <ul class="aspects">
+        {% for aspect_category in aspects %}
+        <li class="aspect_category"><p>{{ aspect_category.name }}</p></li>
+        {% for aspect in aspect_category.aspects %}
+        <li><p>{{ aspect }}</p></li>
+        {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    <p><strong>Comments</strong></p>
+    {{ form.comments }}
+</div>
+<div>
+    <p><strong>Scale</strong></p>
+    {{ form.scale }}
+    <p><strong>Importance</strong></p>
+    {{ form.importance }}
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="hidden" name="next" value="/" />
+        <input type="submit" value="Log in" class="btn btn-default" />
+    </div>
+</div>
+
+{% endblock %}
